@@ -56,17 +56,27 @@ const titleClickHandler = function (event) {
         optTitleListSelector.innerHTML = ''; // Co tutaj zrobic? Mam zastosować fragment ".innerHTML ='';" do elementu zapisanego w stałej titleList.
            
         /* for each article */
-
-        /* get the article id */
+        const articles = document.querySelectorAll(optArticleSelector);
         
+        for(let article of articles){
+            console.log(article);
+        }
+        /* get the article id */
+        const articleId = clickedElement.getAttribute('id');
 
         /* find the title element */
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 
         /* get the title from the title element */
+        
 
         /* create HTML of the link */
-
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        console.log(linkHTML);
+        
+        
         /* insert link into titleList */
+        
 
     }
 
