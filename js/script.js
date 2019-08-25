@@ -16,8 +16,9 @@ const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles',
     optArticleTagsSelector = '.post-tags .list',
-    optArticleAuthorSelector = '.post-author';
-
+    optArticleAuthorSelector = '.post-author',
+    optTagsListSelector = '.tags.list';
+      
 const titleClickHandler = function (event) {
     event.preventDefault(); //adres strony się nie zmienia po klikaniu w linki 
     const clickedElement = this;
@@ -100,6 +101,9 @@ generateTitleLinks();
 
 
 function generateTags() {
+    /* [NEW] create a new variable allTags with an empty object */
+    let allTags = {};
+    
     /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
 
@@ -126,6 +130,14 @@ function generateTags() {
             console.log(linkHTML);
             /* add generated code to html variable */
             html = html + linkHTML;
+            /* [NEW] check if this link is NOT already in allTags */
+            if(!allTags.hasOwnProperty(tag)){
+                /* [NEW] add generated code to allTags object */
+                allTags[tag] = 1;
+            } else {
+                allTags[tag]++;
+            }
+            
             /* END LOOP: for each tag */
         }
         /* insert HTML of all the links into the tags wrapper */
@@ -133,9 +145,27 @@ function generateTags() {
         titleList.innerHTML = html;
         /* END LOOP: for every article: */
     }
-
-}
-
+    /* [NEW] find list of tags in right column */
+    const tagList = document.querySelector('.tags');
+    
+    /*[NEW] create variable for all links HTML code*/
+    
+    
+    let allTagsHTML = '';
+    /*[NEW] START LOOP: for each tag in allTags: */
+    for(let tag in allTags){
+        
+        /*[NEW] generate code of a link and add it to allTagsHTML */
+        allTagsHTML += tag + ' (' + allTags[tag] + ') ';
+        
+    
+        /*[NEW] END LOOP: for each tag in allTags: */
+        }
+    /*[NEW] add html from allTagsHTML to tagList */
+    
+    tagList.innerHTML = allTagsHTML; 
+    console.log('tag: ', tagList);    
+    }
 generateTags();
 
 function tagClickHandler(event) {
@@ -264,36 +294,36 @@ const addClickListenersToAuthors = function () {
 addClickListenersToAuthors();
 
 
-//function iterateOnArticles() {              
-//    const articles = document.querySelectorAll('article');
-//    let authorsArray = [];
-//    
-//    
-//    for(let article of articles){
-//        let author = article.getAttribute('data-author');
-//        authorsArray.push(author);
-//    }
-//    
-//    
-//    authorsArray = uniq(authorsArray);
-//    
-//    const authorsList = document.querySelector('.list.authors');
-//    for (let author of authorsArray) {
-//        let li = document.createElement('li');
-//        let a = document.createElement('a');
-//        a.href = '#';
-//        a.innerHTML = author;
-//        
-//        a.addEventListener('click',(e)=> {
-//            e.preventDefault();
-//            
-//            console.log(e.target.innerText);
-//            authorList(e.target.innerText); 
-//        });
-//        
-//        li.appendChild(a);
-//        authorsList.appendChild(li);
-//    }
-//}
-//
-//iterateOnArticles();
+function iterateOnArticles() {              
+    const articles = document.querySelectorAll('article');
+    let authorsArray = [];
+    
+    
+    for(let article of articles){
+        let author = article.getAttribute('data-author');
+        authorsArray.push(author);
+    }
+    
+    
+    authorsArray = uniq(authorsArray);
+    
+    const authorsList = document.querySelector('.list.authors');
+    for (let author of authorsArray) {
+        let li = document.createElement('li');
+        let a = document.createElement('a');
+        a.href = '#';
+        a.innerHTML = author;
+        
+        a.addEventListener('click',(e)=> {
+            e.preventDefault();
+            
+            console.log(e.target.innerText);
+            authorList(e.target.innerText); 
+        });
+        
+        li.appendChild(a);
+        authorsList.appendChild(li);
+    }
+}
+
+iterateOnArticles();
