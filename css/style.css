@@ -108,4 +108,40 @@ body {
 .post-tags p {
   margin: 0 10px 0 0;
 }
+
+.tag-size-1 {
+  color: darkslateblue;
+  font-size: 100%;
+}
+
+.tag-size-2 {
+  color: red;
+  font-size: 115%;
+}
+
+.tag-size-3 {
+  color: darkgoldenrod;
+  font-size: 135%;
+}
+
+.tag-size-4 {
+  color: darkgreen;
+  font-size: 160%;
+}
+
+.tag-size-5 {
+  color: fuchsia;
+  font-size: 185%;
+}
+
+.tag-size-1, .tag-size-2, .tag-size-3, .tag-size-4, .tag-size-5 {
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+}
+
+a.tag-size-1, a.tag-size-2, a.tag-size-3, a.tag-size-4, a.tag-size-5 {
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
+}
 /*# sourceMappingURL=style.css.map */
