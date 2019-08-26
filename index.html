@@ -16,7 +16,7 @@
                     <h2 class="section-title">All posts</h2>
 
                     <ul class="list titles">
-                        
+
                     </ul>
                 </aside>
                 <section class="posts">
@@ -33,7 +33,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -50,7 +50,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -66,7 +66,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -83,7 +83,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -100,7 +100,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -117,7 +117,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -134,7 +134,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -151,7 +151,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -168,7 +168,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -185,7 +185,7 @@
                         <div class="post-tags">
                             <p><strong>Tags:</strong></p>
                             <ul class="list list-horizontal">
-                                
+
                             </ul>
                         </div>
                     </article>
@@ -193,11 +193,11 @@
                 <aside class="sidebar">
                     <h2 class="section-title">Tags</h2>
                     <ul class="list tags">
-                        
+
                     </ul>
                     <h2 class="section-title">Authors</h2>
                     <ul class="list authors">
-                        
+
                     </ul>
                 </aside>
             </main>
@@ -206,6 +206,33 @@
 
 
 
+    <script id="template-article-link" type="text/x-handlebars-template">
+        <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+    </script>
+    
+     <script id="template-tag-link" type="text/x-handlebars-template">
+        <li><a href="#tag-{{ id }}"><span>{{ title }}</span></a></li>
+    </script>
+    
+    <script id="template-author-link" type="text/x-handlebars-template">
+        <li><a href="#author-{{ id }}"><span>{{ title }}</span></a></li>
+    </script>
+    
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+        {{#each tags}}
+        <li><a href="#tag-{{id}}" class="tag-size-{{className}}"><span>{{ tag }}</span></a></li>
+        {{/each}}
+    </script>
+    
+    <script id="template-author-cloud-link" type="text/x-handlebars-template">
+        {{#each tags}}
+        <li><a href="#author-{{id}}" class="tag-size-{{className}}"><span>{{ tag }}</span></a></li>
+        {{/each}}
+    </script>
+    
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 
